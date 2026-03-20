@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReviewAgent — AI Review Management for Small Businesses</title>
+    <meta name="description" content="Monitor, respond, and grow your Google reviews on autopilot. AI-powered review management for $0-19/mo — not $299/mo.">
+    <meta property="og:title" content="ReviewAgent — AI Review Management for Small Businesses">
+    <meta property="og:description" content="Monitor, respond, and grow your Google reviews on autopilot. $0-19/mo.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⭐</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#fff7ed',100:'#ffedd5',200:'#fed7aa',300:'#fdba74',400:'#fb923c',500:'#f97316',600:'#ea580c',700:'#c2410c',800:'#9a3412',900:'#7c2d12' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%); }
+        .card-glow { box-shadow: 0 0 30px rgba(249,115,22,0.1); }
+        .star-gold { color: #fbbf24; }
+        @keyframes pulse-ring { 0% { transform: scale(0.95); opacity: 0.7; } 50% { transform: scale(1); opacity: 1; } 100% { transform: scale(0.95); opacity: 0.7; } }
+        .pulse-ring { animation: pulse-ring 2s ease-in-out infinite; }
+        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        .float { animation: float 3s ease-in-out infinite; }
+        .typing-dot { animation: pulse-ring 1.4s infinite ease-in-out both; }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+        .review-card { transition: all 0.3s ease; }
+        .review-card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+    </style>
+</head>
+<body class="gradient-bg text-white antialiased">
+
+    <!-- Nav -->
+    <nav class="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl">⭐</span>
+                <span class="text-xl font-bold">ReviewAgent</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm text-slate-300">
+                <a href="#demo" class="hover:text-white transition">Demo</a>
+                <a href="#features" class="hover:text-white transition">Features</a>
+                <a href="#pricing" class="hover:text-white transition">Pricing</a>
+                <a href="#compare" class="hover:text-white transition">Compare</a>
+            </div>
+            <button onclick="document.getElementById('waitlist-section').scrollIntoView({behavior:'smooth'})" class="bg-brand-500 hover:bg-brand-600 px-5 py-2 rounded-lg text-sm font-semibold transition">
+                Join Waitlist
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 bg-brand-500/10 border border-brand-500/20 rounded-full px-4 py-1.5 mb-8 text-sm text-brand-300">
+                <span class="w-2 h-2 bg-brand-400 rounded-full pulse-ring"></span>
+                Review management that doesn't cost $299/mo
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+                Your Reviews.<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-amber-400">On Autopilot.</span>
+            </h1>
+            <p class="text-xl text-slate-300 max-w-2xl mx-auto mb-10">
+                AI monitors your Google reviews, responds in your brand voice, and sends customers review invites — while you run your business. <strong class="text-white">$0-19/mo</strong>, not $299.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+                <button onclick="document.getElementById('waitlist-section').scrollIntoView({behavior:'smooth'})" class="bg-brand-500 hover:bg-brand-600 px-8 py-4 rounded-xl text-lg font-bold transition shadow-lg shadow-brand-500/25">
+                    Get Early Access →
+                </button>
+                <button onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})" class="border border-white/20 hover:border-white/40 px-8 py-4 rounded-xl text-lg font-semibold transition">
+                    See It Work
+                </button>
+            </div>
+
+            <!-- Social proof stats -->
+            <div class="grid grid-cols-3 gap-8 max-w-lg mx-auto">
+                <div>
+                    <div class="text-3xl font-bold text-brand-400">30x</div>
+                    <div class="text-sm text-slate-400">Cheaper than Birdeye</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-brand-400">&lt;5s</div>
+                    <div class="text-sm text-slate-400">AI response time</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-brand-400">24/7</div>
+                    <div class="text-sm text-slate-400">Always monitoring</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo -->
+    <section id="demo" class="py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">See ReviewAgent in Action</h2>
+                <p class="text-slate-400 text-lg">Type a review (or pick an example) and watch AI craft the perfect response</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Review Input -->
+                <div class="bg-slate-800/50 rounded-2xl p-6 border border-white/10">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-lg">👤</div>
+                        <div>
+                            <div class="font-semibold text-sm">Customer Review</div>
+                            <div class="text-xs text-slate-400">Google Business Profile</div>
+                        </div>
+                    </div>
+                    <!-- Star selector -->
+                    <div class="flex gap-1 mb-4" id="star-selector">
+                        <button onclick="setStars(1)" class="text-2xl star-btn" data-star="1">★</button>
+                        <button onclick="setStars(2)" class="text-2xl star-btn" data-star="2">★</button>
+                        <button onclick="setStars(3)" class="text-2xl star-btn" data-star="3">★</button>
+                        <button onclick="setStars(4)" class="text-2xl star-btn" data-star="4">★</button>
+                        <button onclick="setStars(5)" class="text-2xl star-btn" data-star="5">★</button>
+                    </div>
+                    <textarea id="review-input" rows="4" placeholder="Write a review or pick an example below..." class="w-full bg-slate-900/50 border border-white/10 rounded-xl p-4 text-white placeholder-slate-500 resize-none focus:outline-none focus:border-brand-500/50 mb-4"></textarea>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <button onclick="loadExample('positive')" class="text-xs bg-green-500/10 text-green-300 border border-green-500/20 rounded-full px-3 py-1 hover:bg-green-500/20 transition">⭐ 5-star example</button>
+                        <button onclick="loadExample('neutral')" class="text-xs bg-yellow-500/10 text-yellow-300 border border-yellow-500/20 rounded-full px-3 py-1 hover:bg-yellow-500/20 transition">⭐ 3-star example</button>
+                        <button onclick="loadExample('negative')" class="text-xs bg-red-500/10 text-red-300 border border-red-500/20 rounded-full px-3 py-1 hover:bg-red-500/20 transition">⭐ 1-star example</button>
+                    </div>
+                    <button onclick="generateResponse()" id="generate-btn" class="w-full bg-brand-500 hover:bg-brand-600 py-3 rounded-xl font-semibold transition">
+                        Generate AI Response →
+                    </button>
+                </div>
+
+                <!-- AI Response Output -->
+                <div class="bg-slate-800/50 rounded-2xl p-6 border border-white/10">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-500/20 flex items-center justify-center text-lg">⭐</div>
+                        <div>
+                            <div class="font-semibold text-sm">ReviewAgent Response</div>
+                            <div class="text-xs text-slate-400">AI-generated in your brand voice</div>
+                        </div>
+                    </div>
+                    <div id="response-output" class="bg-slate-900/50 border border-white/10 rounded-xl p-4 min-h-[180px] text-slate-300 text-sm leading-relaxed">
+                        <span class="text-slate-500 italic">Click "Generate AI Response" to see the magic ✨</span>
+                    </div>
+                    <div id="response-meta" class="mt-4 hidden">
+                        <div class="flex items-center justify-between text-xs text-slate-400">
+                            <span id="response-tone" class="bg-slate-700/50 px-3 py-1 rounded-full"></span>
+                            <span id="response-time"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-20 px-6 bg-slate-900/30">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">How It Works</h2>
+                <p class="text-slate-400 text-lg">Three steps. Five minutes. Reviews on autopilot.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-brand-500/10 border border-brand-500/20 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-4 float">🔗</div>
+                    <h3 class="text-lg font-bold mb-2">1. Connect</h3>
+                    <p class="text-slate-400 text-sm">Link your Google Business Profile. We start monitoring reviews instantly.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-brand-500/10 border border-brand-500/20 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-4 float" style="animation-delay:0.5s">🤖</div>
+                    <h3 class="text-lg font-bold mb-2">2. Train</h3>
+                    <p class="text-slate-400 text-sm">Upload your FAQ or About page. AI learns your brand voice in seconds.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-brand-500/10 border border-brand-500/20 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-4 float" style="animation-delay:1s">🚀</div>
+                    <h3 class="text-lg font-bold mb-2">3. Autopilot</h3>
+                    <p class="text-slate-400 text-sm">AI responds to positive reviews automatically. Flags negative ones for you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Preview -->
+    <section id="features" class="py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Your Review Command Center</h2>
+                <p class="text-slate-400 text-lg">Everything in one dashboard — no more tab-hopping</p>
+            </div>
+
+            <!-- Mock Dashboard -->
+            <div class="bg-slate-800/60 rounded-2xl border border-white/10 overflow-hidden card-glow">
+                <!-- Dashboard header -->
+                <div class="bg-slate-900/80 px-6 py-4 border-b border-white/5 flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <span class="text-lg">⭐</span>
+                        <span class="font-semibold text-sm">ReviewAgent Dashboard</span>
+                        <span class="text-xs bg-green-500/10 text-green-400 px-2 py-0.5 rounded-full">Live</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-xs text-slate-400">
+                        <span>Last sync: 2 min ago</span>
+                        <div class="w-2 h-2 bg-green-400 rounded-full pulse-ring"></div>
+                    </div>
+                </div>
+
+                <!-- Stats row -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 border-b border-white/5">
+                    <div class="bg-slate-900/50 rounded-xl p-4">
+                        <div class="text-2xl font-bold text-brand-400">4.7</div>
+                        <div class="text-xs text-slate-400">Average Rating</div>
+                        <div class="text-xs text-green-400 mt-1">↑ 0.3 this month</div>
+                    </div>
+                    <div class="bg-slate-900/50 rounded-xl p-4">
+                        <div class="text-2xl font-bold text-white">142</div>
+                        <div class="text-xs text-slate-400">Total Reviews</div>
+                        <div class="text-xs text-green-400 mt-1">+18 this month</div>
+                    </div>
+                    <div class="bg-slate-900/50 rounded-xl p-4">
+                        <div class="text-2xl font-bold text-green-400">94%</div>
+                        <div class="text-xs text-slate-400">Response Rate</div>
+                        <div class="text-xs text-slate-500 mt-1">Industry avg: 25%</div>
+                    </div>
+                    <div class="bg-slate-900/50 rounded-xl p-4">
+                        <div class="text-2xl font-bold text-amber-400">2m</div>
+                        <div class="text-xs text-slate-400">Avg Response Time</div>
+                        <div class="text-xs text-slate-500 mt-1">Industry avg: 3 days</div>
+                    </div>
+                </div>
+
+                <!-- Recent reviews -->
+                <div class="p-6">
+                    <div class="text-sm font-semibold mb-4 text-slate-300">Recent Reviews</div>
+                    <div class="space-y-3">
+                        <div class="review-card bg-slate-900/50 rounded-xl p-4 border border-white/5">
+                            <div class="flex items-start justify-between mb-2">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center text-xs font-bold">SR</div>
+                                    <div>
+                                        <div class="text-sm font-semibold">Sarah R.</div>
+                                        <div class="text-xs text-slate-500">Google • 12 min ago</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-1">
+                                    <span class="star-gold text-sm">★★★★★</span>
+                                    <span class="text-xs bg-green-500/10 text-green-400 px-2 py-0.5 rounded-full ml-2">✓ Auto-responded</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-slate-300 mb-2">"Amazing service! The team was so helpful with my immigration case. Would definitely recommend."</p>
+                            <div class="bg-brand-500/5 border border-brand-500/10 rounded-lg p-3">
+                                <div class="text-xs text-brand-300 mb-1 font-medium">⭐ ReviewAgent responded:</div>
+                                <p class="text-xs text-slate-400">"Thank you so much, Sarah! We're thrilled to hear about your positive experience with our immigration services. Our team works hard to make the process as smooth as possible. We appreciate your recommendation! 🙏"</p>
+                            </div>
+                        </div>
+                        <div class="review-card bg-slate-900/50 rounded-xl p-4 border border-red-500/10">
+                            <div class="flex items-start justify-between mb-2">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center text-xs font-bold">MK</div>
+                                    <div>
+                                        <div class="text-sm font-semibold">Mike K.</div>
+                                        <div class="text-xs text-slate-500">Google • 1 hour ago</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-1">
+                                    <span class="star-gold text-sm">★★<span class="text-slate-600">★★★</span></span>
+                                    <span class="text-xs bg-red-500/10 text-red-400 px-2 py-0.5 rounded-full ml-2">⚠ Needs attention</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-slate-300 mb-2">"Long wait times on the phone. Hard to get through to anyone."</p>
+                            <div class="bg-amber-500/5 border border-amber-500/10 rounded-lg p-3">
+                                <div class="text-xs text-amber-300 mb-1 font-medium">🔔 Flagged for human review — draft response ready</div>
+                                <p class="text-xs text-slate-400">"Hi Mike, we sincerely apologize for the wait times you experienced. We've been implementing new scheduling to reduce hold times. Would you mind calling back this week? Ask for [Owner Name] directly — I'll make sure you're taken care of. Thank you for your feedback."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QR Code Feature -->
+    <section class="py-20 px-6 bg-slate-900/30">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                        QR Code Review Invites
+                    </h2>
+                    <p class="text-slate-400 text-lg mb-6">
+                        Print a QR code for your counter, table tent, or receipt. Customers scan → land on your Google review page → 5-star reviews flow in.
+                    </p>
+                    <ul class="space-y-3 text-slate-300">
+                        <li class="flex items-center gap-3"><span class="text-brand-400">✓</span> Custom-branded QR codes</li>
+                        <li class="flex items-center gap-3"><span class="text-brand-400">✓</span> Track scans per location</li>
+                        <li class="flex items-center gap-3"><span class="text-brand-400">✓</span> Deep-link to Google review form</li>
+                        <li class="flex items-center gap-3"><span class="text-brand-400">✓</span> Works with any phone camera</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-800/50 rounded-2xl border border-white/10 p-8 text-center">
+                    <div class="bg-white rounded-xl p-6 inline-block mb-4">
+                        <div class="grid grid-cols-7 gap-1" id="qr-demo">
+                            <!-- Generated QR-like pattern -->
+                        </div>
+                    </div>
+                    <div class="text-sm text-slate-400">Scan to leave a review</div>
+                    <div class="text-xs text-slate-500 mt-1">Your Business Name • Google Reviews</div>
+                    <div class="mt-4 text-xs text-slate-500 bg-slate-900/50 rounded-lg p-3">
+                        <span class="text-brand-400 font-semibold">87 scans</span> this month • <span class="text-green-400 font-semibold">34 reviews</span> generated
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sentiment Analysis -->
+    <section class="py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Know What Customers Really Think</h2>
+                <p class="text-slate-400 text-lg">AI reads between the lines — spot trends before they become problems</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-slate-800/50 rounded-2xl border border-white/10 p-6">
+                    <div class="text-sm font-semibold mb-4 text-slate-300">📊 Weekly Sentiment</div>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between text-xs mb-1"><span class="text-slate-400">Positive</span><span class="text-green-400">78%</span></div>
+                            <div class="h-2 bg-slate-700 rounded-full"><div class="h-2 bg-green-500 rounded-full" style="width:78%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1"><span class="text-slate-400">Neutral</span><span class="text-yellow-400">15%</span></div>
+                            <div class="h-2 bg-slate-700 rounded-full"><div class="h-2 bg-yellow-500 rounded-full" style="width:15%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs mb-1"><span class="text-slate-400">Negative</span><span class="text-red-400">7%</span></div>
+                            <div class="h-2 bg-slate-700 rounded-full"><div class="h-2 bg-red-500 rounded-full" style="width:7%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-800/50 rounded-2xl border border-white/10 p-6">
+                    <div class="text-sm font-semibold mb-4 text-slate-300">🔥 Trending Topics</div>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs bg-green-500/10 text-green-300 px-2 py-1 rounded-full">"friendly staff"</span>
+                            <span class="text-xs text-slate-400">mentioned 12x</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs bg-green-500/10 text-green-300 px-2 py-1 rounded-full">"quick service"</span>
+                            <span class="text-xs text-slate-400">mentioned 8x</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs bg-red-500/10 text-red-300 px-2 py-1 rounded-full">"wait times"</span>
+                            <span class="text-xs text-slate-400">mentioned 5x ↑</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs bg-yellow-500/10 text-yellow-300 px-2 py-1 rounded-full">"parking"</span>
+                            <span class="text-xs text-slate-400">mentioned 3x</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-800/50 rounded-2xl border border-white/10 p-6">
+                    <div class="text-sm font-semibold mb-4 text-slate-300">🚨 Alerts</div>
+                    <div class="space-y-3">
+                        <div class="bg-red-500/5 border border-red-500/10 rounded-lg p-3">
+                            <div class="text-xs text-red-300 font-medium mb-1">Crisis Alert</div>
+                            <div class="text-xs text-slate-400">"wait times" mentions spiked 150% this week. Consider addressing in a public response.</div>
+                        </div>
+                        <div class="bg-green-500/5 border border-green-500/10 rounded-lg p-3">
+                            <div class="text-xs text-green-300 font-medium mb-1">Win Alert</div>
+                            <div class="text-xs text-slate-400">Your rating increased from 4.4 to 4.7 this month. 🎉</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section id="compare" class="py-20 px-6 bg-slate-900/30">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Stop Overpaying for Review Management</h2>
+                <p class="text-slate-400 text-lg">Same features. Fraction of the price.</p>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="border-b border-white/10">
+                            <th class="text-left py-4 px-4 text-slate-400 font-medium">Feature</th>
+                            <th class="py-4 px-4 text-center">
+                                <div class="text-brand-400 font-bold">ReviewAgent</div>
+                                <div class="text-xs text-slate-400">$0-19/mo</div>
+                            </th>
+                            <th class="py-4 px-4 text-center">
+                                <div class="text-slate-300">Birdeye</div>
+                                <div class="text-xs text-slate-500">$299/mo</div>
+                            </th>
+                            <th class="py-4 px-4 text-center">
+                                <div class="text-slate-300">NiceJob</div>
+                                <div class="text-xs text-slate-500">$75/mo</div>
+                            </th>
+                            <th class="py-4 px-4 text-center">
+                                <div class="text-slate-300">TalkbackAI</div>
+                                <div class="text-xs text-slate-500">$5-15/mo</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-slate-300">
+                        <tr class="border-b border-white/5"><td class="py-3 px-4">AI Review Responses</td><td class="text-center text-green-400">✓</td><td class="text-center text-green-400">✓</td><td class="text-center text-red-400">✗</td><td class="text-center text-green-400">✓</td></tr>
+                        <tr class="border-b border-white/5"><td class="py-3 px-4">Unified Dashboard</td><td class="text-center text-green-400">✓</td><td class="text-center text-green-400">✓</td><td class="text-center text-green-400">✓</td><td class="text-center text-red-400">✗</td></tr>
+                        <tr class="border-b border-white/5"><td class="py-3 px-4">Auto-pilot Mode</td><td class="text-center text-green-400">✓</td><td class="text-center text-green-400">✓</td><td class="text-center text-red-400">✗</td><td class="text-center text-red-400">✗</td></tr>
+                        <tr class="border-b border-white/5"><td class="py-3 px-4">Review Invites (SMS/Email)</td><td class="text-center text-green-400">✓</td><td class="text-center text-green-400">✓</td><td class="text-center text-green-400">✓</td><td class="text-center text-red-400">✗</td></tr>
+                        <tr class="border-b border-white/5"><td class="py-3 px-4">QR Code Generation</td><td class="text-center text-green-400">✓</td><td class="text-center text-green-400">✓</td><td class="text-center text-red-400">✗</td><td class="text-center text-red-400">✗</td></tr>
+                        <tr class="border-b border-white/5"><td class="py-3 px-4">Sentiment Analysis</td><td class="text-center text-green-400">✓</td><td class="text-center text-green-400">✓</td><td class="text-center text-red-400">✗</td><td class="text-center text-red-400">✗</td></tr>
+                        <tr class="border-b border-white/5"><td class="py-3 px-4">Brand Voice Training</td><td class="text-center text-green-400">✓</td><td class="text-center text-yellow-400">Limited</td><td class="text-center text-red-400">✗</td><td class="text-center text-red-400">✗</td></tr>
+                        <tr class="border-b border-white/5"><td class="py-3 px-4">Multi-platform</td><td class="text-center text-green-400">Google+Yelp+FB</td><td class="text-center text-green-400">200+ sites</td><td class="text-center text-green-400">Google+FB</td><td class="text-center text-yellow-400">Google only</td></tr>
+                        <tr class="border-b border-white/5"><td class="py-3 px-4">Crisis Alerts</td><td class="text-center text-green-400">✓</td><td class="text-center text-green-400">✓</td><td class="text-center text-red-400">✗</td><td class="text-center text-red-400">✗</td></tr>
+                        <tr><td class="py-3 px-4 font-bold text-white">Starting Price</td><td class="text-center text-brand-400 font-bold">FREE</td><td class="text-center text-slate-400">$299/mo</td><td class="text-center text-slate-400">$75/mo</td><td class="text-center text-slate-400">$5/mo</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-20 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Simple Pricing. No Surprises.</h2>
+                <p class="text-slate-400 text-lg">Start free. Upgrade when you need more.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Free -->
+                <div class="bg-slate-800/50 rounded-2xl border border-white/10 p-8">
+                    <div class="text-sm text-slate-400 mb-2">Starter</div>
+                    <div class="text-4xl font-bold mb-1">$0</div>
+                    <div class="text-sm text-slate-500 mb-6">/month forever</div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="text-green-400">✓</span> 1 Google location</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="text-green-400">✓</span> 5 AI responses/mo</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="text-green-400">✓</span> Review dashboard</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="text-green-400">✓</span> Email alerts</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-400"><span class="text-slate-600">✗</span> Brand voice training</li>
+                    </ul>
+                    <button onclick="document.getElementById('waitlist-section').scrollIntoView({behavior:'smooth'})" class="w-full border border-white/20 hover:border-white/40 py-3 rounded-xl font-semibold transition">
+                        Join Waitlist
+                    </button>
+                </div>
+                <!-- Pro -->
+                <div class="bg-slate-800/50 rounded-2xl border-2 border-brand-500 p-8 relative">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-500 text-xs font-bold px-3 py-1 rounded-full">MOST POPULAR</div>
+                    <div class="text-sm text-brand-300 mb-2">Pro</div>
+                    <div class="text-4xl font-bold mb-1">$9</div>
+                    <div class="text-sm text-slate-500 mb-6">/month</div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="text-green-400">✓</span> 3 locations (Google + Yelp)</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="text-green-400">✓</span> Unlimited AI responses</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="text-green-400">✓</span> Brand voice training</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="text-green-400">✓</span> Review invite links</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="text-green-400">✓</span> QR code generator</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="text-green-400">✓</span> Weekly sentiment report</li>
+                    </ul>
+                    <button onclick="document.getElementById('waitlist-section').scrollIntoView({behavior:'smooth'})" class="w-full bg-brand-500 hover:bg-brand-600 py-3 rounded-xl font-bold transition">
+                        Join Waitlist
+                    </button>
+                </div>
+                <!-- Business -->
+                <div class="bg-slate-800/50 rounded-2xl border border-white/10 p-8">
+                    <div class="text-sm text-slate-400 mb-2">Business</div>
+                    <div class="text-4xl font-bold mb-1">$19</div>
+                    <div class="text-sm text-slate-500 mb-6">/month</div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="text-green-400">✓</span> 10 locations (Google+Yelp+FB)</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="text-green-400">✓</span> Auto-pilot mode</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="text-green-400">✓</span> 100 SMS/email invites/mo</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="text-green-400">✓</span> Competitor monitoring</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="text-green-400">✓</span> Crisis alerts</li>
+                        <li class="flex items-center gap-2 text-sm text-slate-300"><span class="text-green-400">✓</span> Multi-language + white-label</li>
+                    </ul>
+                    <button onclick="document.getElementById('waitlist-section').scrollIntoView({behavior:'smooth'})" class="w-full border border-white/20 hover:border-white/40 py-3 rounded-xl font-semibold transition">
+                        Join Waitlist
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist -->
+    <section id="waitlist-section" class="py-20 px-6 bg-slate-900/30">
+        <div class="max-w-xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Get Early Access</h2>
+            <p class="text-slate-400 mb-8">Join the waitlist. First 100 users get Pro free for 3 months.</p>
+            <div class="bg-slate-800/50 rounded-2xl border border-white/10 p-8">
+                <div class="space-y-4">
+                    <input type="email" id="waitlist-email" placeholder="you@business.com" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-brand-500/50">
+                    <select id="waitlist-business" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-slate-300 focus:outline-none focus:border-brand-500/50">
+                        <option value="">What type of business?</option>
+                        <option value="restaurant">Restaurant / Cafe</option>
+                        <option value="salon">Salon / Spa</option>
+                        <option value="medical">Medical / Dental</option>
+                        <option value="legal">Law Firm</option>
+                        <option value="auto">Auto Shop</option>
+                        <option value="home">Home Services (HVAC, Plumbing)</option>
+                        <option value="retail">Retail</option>
+                        <option value="fitness">Fitness / Gym</option>
+                        <option value="freelancer">Freelancer / Consultant</option>
+                        <option value="agency">Agency</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <select id="waitlist-reviews" class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-slate-300 focus:outline-none focus:border-brand-500/50">
+                        <option value="">How many Google reviews do you have?</option>
+                        <option value="0-10">0-10</option>
+                        <option value="11-50">11-50</option>
+                        <option value="51-200">51-200</option>
+                        <option value="200+">200+</option>
+                    </select>
+                    <button onclick="joinWaitlist()" id="waitlist-btn" class="w-full bg-brand-500 hover:bg-brand-600 py-3 rounded-xl font-bold text-lg transition">
+                        Join Waitlist →
+                    </button>
+                </div>
+                <div id="waitlist-success" class="hidden mt-4 p-4 bg-green-500/10 border border-green-500/20 rounded-xl">
+                    <div class="text-green-400 font-semibold">🎉 You're on the list!</div>
+                    <div class="text-sm text-slate-400 mt-1">We'll notify you when ReviewAgent launches.</div>
+                </div>
+            </div>
+            <div class="mt-6 flex items-center justify-center gap-6 text-xs text-slate-500">
+                <span>🔒 No spam, ever</span>
+                <span>•</span>
+                <span>Cancel anytime</span>
+                <span>•</span>
+                <span>Free tier always free</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-white/5">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <span class="text-xl">⭐</span>
+                <span class="font-bold">ReviewAgent</span>
+                <span class="text-sm text-slate-500">by OpenSphere Labs</span>
+            </div>
+            <div class="text-sm text-slate-500">
+                © 2026 OpenSphere Corp. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Star selector
+        let selectedStars = 5;
+        function setStars(n) {
+            selectedStars = n;
+            document.querySelectorAll('.star-btn').forEach((btn, i) => {
+                btn.style.color = i < n ? '#fbbf24' : '#475569';
+            });
+        }
+        setStars(5);
+
+        // Example reviews
+        const examples = {
+            positive: { stars: 5, text: "Absolutely love this place! The staff was incredibly friendly and the service was fast. My immigration paperwork was handled perfectly. Highly recommend to anyone!" },
+            neutral: { stars: 3, text: "Decent experience overall. The consultation was helpful but I had to wait 45 minutes past my appointment time. The office could use better parking options." },
+            negative: { stars: 1, text: "Terrible experience. Nobody answered my calls for 3 days. When I finally got through, they couldn't find my file. Very unprofessional and disorganized." }
+        };
+
+        function loadExample(type) {
+            const ex = examples[type];
+            document.getElementById('review-input').value = ex.text;
+            setStars(ex.stars);
+        }
+
+        // AI Response templates
+        const responses = {
+            positive: [
+                "Thank you so much for your wonderful review! 🌟 We're absolutely thrilled to hear about your positive experience. Our team takes great pride in providing fast, friendly service, and it means the world to know it made a difference for you. We truly appreciate your recommendation and look forward to serving you again!",
+                "What an amazing review — thank you! 😊 Our team loves hearing feedback like this. We work hard to make every interaction smooth and enjoyable, and your kind words make it all worth it. Can't wait to welcome you back!",
+                "This made our day! Thank you for taking the time to share your experience. We're so glad everything went well with your paperwork. Reviews like yours help other people find us, and we're grateful for your support. See you next time! 🙏"
+            ],
+            neutral: [
+                "Thank you for your honest feedback. We're glad the consultation was helpful! We sincerely apologize for the wait time — that's not the experience we want for our clients. We're actively working on improving our scheduling to reduce delays. Regarding parking, we're exploring options with our building management. We'd love the chance to give you a 5-star experience next time — please don't hesitate to reach out directly.",
+                "We appreciate you sharing this, and we're sorry about the wait. You're right — 45 minutes is too long, and we're taking steps to fix that. Your feedback about parking is noted too. We hope you'll give us another chance to show what we're really about. Thank you! 🙏"
+            ],
+            negative: [
+                "We're very sorry about your experience, and we take this feedback seriously. Not being able to reach us and having trouble locating your file is completely unacceptable. We've identified what went wrong and are implementing new procedures to ensure this doesn't happen again. I'd personally like to make this right — please reach out to me directly at [Owner Name/Phone] so we can resolve your case immediately. You deserve better, and we want to prove that.",
+                "Thank you for bringing this to our attention. We sincerely apologize — this is not the standard of service we hold ourselves to. We've already begun investigating what happened with your file and phone coverage. I'd like to personally handle your case going forward. Please contact me directly at [Owner Name/Phone]. We are committed to making this right."
+            ]
+        };
+
+        function generateResponse() {
+            const review = document.getElementById('review-input').value.trim();
+            if (!review) { alert('Please enter a review first!'); return; }
+
+            const btn = document.getElementById('generate-btn');
+            const output = document.getElementById('response-output');
+            const meta = document.getElementById('response-meta');
+
+            btn.textContent = 'Generating...';
+            btn.disabled = true;
+            output.innerHTML = '<div class="flex items-center gap-2"><div class="typing-dot w-2 h-2 bg-brand-400 rounded-full"></div><div class="typing-dot w-2 h-2 bg-brand-400 rounded-full"></div><div class="typing-dot w-2 h-2 bg-brand-400 rounded-full"></div></div>';
+
+            let tone, category;
+            if (selectedStars >= 4) { category = 'positive'; tone = '😊 Warm & Grateful'; }
+            else if (selectedStars >= 3) { category = 'neutral'; tone = '🤝 Professional & Empathetic'; }
+            else { category = 'negative'; tone = '🛡️ Apologetic & Action-Oriented'; }
+
+            const pool = responses[category];
+            const response = pool[Math.floor(Math.random() * pool.length)];
+
+            // Simulate typing
+            setTimeout(() => {
+                let i = 0;
+                output.textContent = '';
+                const interval = setInterval(() => {
+                    output.textContent += response[i];
+                    i++;
+                    if (i >= response.length) {
+                        clearInterval(interval);
+                        btn.textContent = 'Generate AI Response →';
+                        btn.disabled = false;
+                        meta.classList.remove('hidden');
+                        document.getElementById('response-tone').textContent = tone;
+                        document.getElementById('response-time').textContent = `Generated in ${(Math.random() * 2 + 1).toFixed(1)}s`;
+                    }
+                }, 12);
+            }, 800);
+        }
+
+        // QR code demo
+        function generateQR() {
+            const container = document.getElementById('qr-demo');
+            const size = 21;
+            const pattern = [];
+            // Create a QR-like pattern
+            for (let i = 0; i < size * size; i++) {
+                const row = Math.floor(i / size);
+                const col = i % size;
+                const isCorner = (row < 7 && col < 7) || (row < 7 && col >= size-7) || (row >= size-7 && col < 7);
+                const isBorder = isCorner && (row === 0 || row === 6 || col === 0 || col === 6 || col === size-1 || col === size-7 || row === size-1 || row === size-7);
+                const isCenter = isCorner && row >= 2 && row <= 4 && (col >= 2 && col <= 4 || col >= size-5 && col <= size-3);
+                const isInnerCenter = row >= size-5 && row <= size-3 && col >= 2 && col <= 4;
+                let filled = isBorder || isCenter || isInnerCenter || (!isCorner && Math.random() > 0.5);
+                const div = document.createElement('div');
+                div.className = `w-2 h-2 rounded-sm ${filled ? 'bg-slate-900' : 'bg-white'}`;
+                container.appendChild(div);
+            }
+        }
+        generateQR();
+
+        // Waitlist
+        function joinWaitlist() {
+            const email = document.getElementById('waitlist-email').value.trim();
+            if (!email || !email.includes('@')) { alert('Please enter a valid email address'); return; }
+
+            const data = {
+                email,
+                business: document.getElementById('waitlist-business').value,
+                reviews: document.getElementById('waitlist-reviews').value,
+                product: 'reviewagent',
+                timestamp: new Date().toISOString()
+            };
+
+            // Store locally
+            const existing = JSON.parse(localStorage.getItem('reviewagent_waitlist') || '[]');
+            existing.push(data);
+            localStorage.setItem('reviewagent_waitlist', JSON.stringify(existing));
+
+            document.getElementById('waitlist-btn').style.display = 'none';
+            document.getElementById('waitlist-success').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
